@@ -1,0 +1,117 @@
+import java.util.Scanner;
+
+public class OnlineExaminationSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean loggedIn = false;
+
+        // Authentication
+        while (!loggedIn) {
+            System.out.println("Welcome to Online Examination System");
+            System.out.print("Enter username: ");
+            String username = scanner.nextLine();
+            System.out.print("Enter password: ");
+            String password = scanner.nextLine();
+
+            // Simulated authentication - Replace with actual authentication logic
+            if (username.equals("admin") && password.equals("password")) {
+                loggedIn = true;
+                System.out.println("Login successful!");
+            } else {
+                System.out.println("Invalid username or password. Please try again.");
+            }
+        }
+
+        // Main menu
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("\nMain Menu:");
+            System.out.println("1. Start Examination");
+            System.out.println("2. View Results");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline character
+
+            switch (choice) {
+                case 1:
+                    startExamination(scanner);
+                    break;
+                case 2:
+                    viewResults();
+                    break;
+                case 3:
+                    exit = true;
+                    System.out.println("Thank you for using Online Examination System!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        }
+
+        scanner.close();
+    }
+
+    private static void startExamination(Scanner scanner) {
+        // Sample questions and answers for BTech students
+        String[] questions = {
+            "What is the full form of CPU?",
+            "What is the capital of India?",
+            "What is the formula for Ohm's Law?",
+            "What is the main function of a transformer?",
+            "What is the speed of light in vacuum?",
+            "What is the chemical symbol for water?",
+            "What is the SI unit of force?",
+            "Who invented the telephone?",
+            "What is the function of a router in computer networking?",
+            "What is the difference between HTML and CSS?",
+            "What is the boiling point of water in Celsius?",
+            "What is the first law of thermodynamics?",
+            "What is the purpose of a database management system?",
+            "Who is known as the father of modern physics?",
+            "What is the difference between a compiler and an interpreter?",
+            "What is the function of a transistor in an electronic circuit?",
+            "What is the purpose of a cache memory in a computer?",
+            "What is the difference between TCP and UDP?",
+            "What is the importance of algorithms in computer science?",
+            "What is the significance of the Turing Test in artificial intelligence?"
+        };
+
+        String[] answers = {
+            "Central Processing Unit",
+            "New Delhi",
+            "V = IR",
+            "To change voltage from one level to another",
+            "299,792,458 meters per second",
+            "H2O",
+            "Newton",
+            "Alexander Graham Bell",
+            "To forward packets between computer networks",
+            "HTML is a markup language for creating web pages, while CSS is a style sheet language for styling HTML documents.",
+            "100 degrees Celsius",
+            "Energy cannot be created or destroyed, only transformed or transferred",
+            "To manage and organize data efficiently",
+            "Albert Einstein",
+            "A compiler translates source code into machine code before execution, while an interpreter translates and executes code line by line.",
+            "To amplify or switch electronic signals",
+            "To temporarily store frequently accessed data for quicker access",
+            "TCP (Transmission Control Protocol) provides reliable, ordered, and error-checked delivery of data, while UDP (User Datagram Protocol) is a connectionless protocol that does not guarantee delivery.",
+            "Algorithms are fundamental to computer science as they provide step-by-step instructions for solving problems efficiently.",
+            "The Turing Test assesses a machine's ability to exhibit intelligent behavior equivalent to, or indistinguishable from, that of a human."
+        };
+
+        // Display questions
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println((i + 1) + ". " + questions[i]);
+            System.out.println("Correct Answer: " + answers[i]);
+            System.out.println();
+        }
+
+        // Additional logic for answering questions can be implemented here
+    }
+
+    private static void viewResults() {
+        // Implement logic to view examination results, if available
+        System.out.println("Viewing Results...");
+    }
+}
